@@ -40,4 +40,4 @@ mybot.shutdown()
 print(dat_arr)
 cols = ["Time", "Command", "Righthip", "Lefthip"]
 df = pandas.DataFrame(dat_arr, columns = cols)
-df.to_csv("data\\servotsts.csv")
+df.to_csv(r"data\servotsts.csv")
