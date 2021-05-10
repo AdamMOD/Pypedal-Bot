@@ -28,6 +28,7 @@ for i in range(4):
     print(mybot.read_servo_angle(i))
 
 mybot.zero_servos()
+time.sleep(1)
 for i in range(4):
     print(mybot.read_servo_angle(i))
 """
