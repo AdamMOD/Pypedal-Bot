@@ -51,6 +51,10 @@ class Bot:
         else:
             print("Angle too big!")
 
+    def shutdown():
+        mybot.zero_servos()
+        time.sleep(1)
+
     def read_servo_count(self, servo):
         count = self.ads_servo_channels[servo].value
         return count
