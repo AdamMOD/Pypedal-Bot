@@ -2,6 +2,7 @@ import adafruit_ads1x15.ads1115
 import adafruit_motor.servo
 import busio
 import numpy as np
+import time
 from adafruit_ads1x15.analog_in import AnalogIn
 from adafruit_pca9685 import PCA9685
 from adafruit_servokit import ServoKit
