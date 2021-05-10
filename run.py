@@ -11,7 +11,7 @@ from adafruit_servokit import ServoKit
 from board import SCL, SDA
 
 mybot = bot.Bot()
-
+"""
 maxcmd = np.array([60.0, 60., 60., 60.])
 for servo, cmd in enumerate(maxcmd):
     mybot.command_servo_angle(servo, cmd)
@@ -28,8 +28,7 @@ for i in range(4):
     print(mybot.read_servo_angle(i))
 """
 mybot.zero_servos()
-
-
+"""
 t_start = round(time.time() * 1000)
 currtime = round(time.time() * 1000)
 

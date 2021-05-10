@@ -40,9 +40,12 @@ class Bot:
             self.command_servo_angle(servo, 0)
 
     def command_servo_angle(self, servo, cmd):
-        self.kit.servo[self.pca_servo_channels[servo]].angle = (
-            self.servo_zero_angles[servo] + cmd * self.servo_angle_flips[servo]
-        )
+        if(cmd < 60):
+            self.kit.servo[self.pca_servo_channels[servo]].angle = (
+                self.servo_zero_angles[servo] + cmd * self.servo_angle_flips[servo]
+            )
+        else:
+            print("Angle too big!")
 
     def read_servo_angle(self, servo):
         count = self.ads_servo_channels[servo].value
