@@ -23,6 +23,10 @@ class Bot:
 
         self.servo_zero_angles = np.array([80.0, 65.0, 80.0, 70.0])
         self.servo_angle_flips = np.array([1, -1, -1, 1])
+        self.servo_map_in_mins = np.array([17664, 9632, 8496, 18368])
+        self.servo_map_in_maxs = np.array([8704, 18704, 17616, 9392])
+        self.servo_map_out_min = np.ones(4) * -60
+        self.servo_map_out_max = np.ones(4) * 60
 
         self.ads = adafruit_ads1x15.ads1115.ADS1115(self.__i2cbus)
         self.ads.gain = 1
@@ -47,6 +51,11 @@ class Bot:
         else:
             print("Angle too big!")
 
-    def read_servo_angle(self, servo):
+    def read_servo_count(self, servo):
         count = self.ads_servo_channels[servo].value
         return count
+
+    def read_servo_angle(self, servo):
+        count = self.read_servo_count(servo)
+        angle = self.__map(count, self.servo_map_in_mins[servo], self.servo_map_in_max[servo], self.servo_map_out_min[servo], self.servo_map_out_max[servo])
+        return angle
