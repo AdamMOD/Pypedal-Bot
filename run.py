@@ -15,13 +15,11 @@ mybot = bot.Bot()
 
 mybot.zero_servos()
 time.sleep(1)
-for i in range(4):
-    print(mybot.read_servo_angle(i))
 
 t_start = round(time.time() * 1000)
 currtime = round(time.time() * 1000)
 
-print(t_start)
+#print(t_start)
 
 dat_arr = []
 
@@ -37,7 +35,7 @@ while(currtime - t_start < 10000):
 
 mybot.shutdown()
 
-print(dat_arr)
+#print(dat_arr)
 cols = ["Time", "Command", "Righthip", "Lefthip"]
 df = pandas.DataFrame(dat_arr, columns = cols)
 df.to_csv(r"data\servotsts.csv")
