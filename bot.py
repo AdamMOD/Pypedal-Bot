@@ -13,7 +13,7 @@ class Bot:
         self.__i2cbus = busio.I2C(SCL, SDA)
 
         self.kit = ServoKit(channels=16)
-        self.pca = PCA9685(i2c_bus)
+        self.pca = PCA9685(self.__i2cbus)
         self.pca.frequency = 330
 
         self.pca_servo_channels = np.array([0, 1, 4, 5])
@@ -24,7 +24,7 @@ class Bot:
         self.servo_zero_angles = np.array([60.0, 60.0, 60.0, 60.0])
         self.servo_angle_flips = np.array([1, -1, -1, 1])
 
-        self.ads = adafruit_ads1x15.ads1115.ADS1115(i2c_bus)
+        self.ads = adafruit_ads1x15.ads1115.ADS1115(self.__i2c_bus)
         self.ads.gain = 1
         ads_chan0 = AnalogIn(self.ads, adafruit_ads1x15.ads1115.P0)
         ads_chan1 = AnalogIn(self.ads, adafruit_ads1x15.ads1115.P1)
