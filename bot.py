@@ -7,11 +7,16 @@ from adafruit_ads1x15.analog_in import AnalogIn
 from adafruit_pca9685 import PCA9685
 from adafruit_servokit import ServoKit
 from board import SCL, SDA
+import adafruit_bno055
 
 
 class Bot:
     def __init__(self):
         self.__i2cbus = busio.I2C(SCL, SDA)
+
+        self.imu = adafruit_bno055.BNO055_I2C(self.__i2cbus)
+
+
 
         self.kit = ServoKit(channels=16)
         self.pca = PCA9685(self.__i2cbus)
@@ -64,3 +69,7 @@ class Bot:
         count = self.read_servo_count(servo)
         angle = self.__map(count, self.servo_map_in_mins[servo], self.servo_map_in_maxs[servo], self.servo_map_out_mins[servo], self.servo_map_out_maxs[servo])
         return angle
+
+    def read_pitch(self):
+        euler = self.imu.euler
+        return euler[1]
