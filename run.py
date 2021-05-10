@@ -1,5 +1,6 @@
 import time
 import bot
+import pandas
 
 import adafruit_ads1x15.ads1115 as ADS
 import adafruit_motor.servo
@@ -28,8 +29,12 @@ while(currtime - t_start < 10000):
     currtime = round(time.time() * 1000)
     cmd = 20 * np.sin(float(currtime - t_start) * 2 / 1000)
     mybot.command_servo_angle(1, cmd)
-    reading = mybot.read_servo_angle(1)
-    dat_arr.append([currtime - t_start, cmd, reading])
+    mybot.command_servo_angle(0, cmd)
+    reading1 = mybot.read_servo_angle(1)
+    reading0 = mybot.read_servo_angle(0)
+    dat_arr.append([currtime - t_start, cmd, reading0, reading1])
 
 print(dat_arr)
-
+cols = ["Time", "Command", "Righthip", "Lefthip"]
+df = pandas.DataFrame(dat_arr, columns = cols)
+df.to_csv("data\\servotsts.csv")
