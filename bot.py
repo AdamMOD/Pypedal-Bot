@@ -51,7 +51,7 @@ class Bot:
         else:
             print("Angle too big!")
 
-    def shutdown():
+    def shutdown(self):
         mybot.zero_servos()
         time.sleep(1)
 
