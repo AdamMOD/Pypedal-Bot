@@ -30,7 +30,7 @@ class Bot:
         ads_chan1 = AnalogIn(self.ads, adafruit_ads1x15.ads1115.P1)
         ads_chan2 = AnalogIn(self.ads, adafruit_ads1x15.ads1115.P2)
         ads_chan3 = AnalogIn(self.ads, adafruit_ads1x15.ads1115.P3)
-        self.ads_servo_channels = np.array([0, 1, 2, 3])
+        self.ads_servo_channels = [ads_chan0, ads_chan1, ads_chan2, ads_chan3]
 
     def __map(self, x, in_min, in_max, out_min, out_max):
         return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
