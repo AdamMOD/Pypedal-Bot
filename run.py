@@ -23,7 +23,7 @@ currtime = round(time.time() * 1000)
 
 dat_arr = []
 
-while(currtime - t_start < 1000):
+while(currtime - t_start < 10000):
     currtime = round(time.time() * 1000)
     cmd = 20 * np.sin(float(currtime - t_start) * 2 / 1000)
     mybot.command_servo_angle(1, cmd)

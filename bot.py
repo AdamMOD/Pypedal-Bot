@@ -7,12 +7,14 @@ from adafruit_ads1x15.analog_in import AnalogIn
 from adafruit_pca9685 import PCA9685
 from adafruit_servokit import ServoKit
 from board import SCL, SDA
+import serial
 import adafruit_bno055
 
 
 class Bot:
     def __init__(self):
         self.__i2cbus = busio.I2C(SCL, SDA)
+        self.__uart = serial.Serial("/dev/serial0")
 
         self.imu = adafruit_bno055.BNO055_I2C(self.__i2cbus)
 
