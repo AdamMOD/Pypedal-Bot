@@ -18,10 +18,10 @@ class Bot:
 
         self.pca_servo_channels = np.array([0, 1, 4, 5])
         for channel in self.pca_servo_channels:
-            self.kit.servo[channel].acuation_range = 120
+            self.kit.servo[channel].acuation_range = 180
             self.kit.servo[channel].set_pulse_width_range(1000, 2000)
 
-        self.servo_zero_angles = np.array([70.0, 60.0, 75.0, 65.0])
+        self.servo_zero_angles = np.array([105.0, 90.0, 112.5, 97.5])
         self.servo_angle_flips = np.array([1, -1, -1, 1])
 
         self.ads = adafruit_ads1x15.ads1115.ADS1115(self.__i2cbus)
