@@ -40,7 +40,7 @@ class Bot:
             self.command_servo_angle(servo, 0)
 
     def command_servo_angle(self, servo, cmd):
-        if(cmd < 60):
+        if(abs(cmd) > 61):
             self.kit.servo[self.pca_servo_channels[servo]].angle = (
                 self.servo_zero_angles[servo] + cmd * self.servo_angle_flips[servo]
             )
