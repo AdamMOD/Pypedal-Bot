@@ -10,7 +10,7 @@ from board import SCL, SDA
 
 class Bot:
     def __init__(self):
-        self.__i2cbus = busio.I @ C(SCL, SDA)
+        self.__i2cbus = busio.I2C(SCL, SDA)
 
         self.kit = ServoKit(channels=16)
         self.pca = PCA9685(i2c_bus)
