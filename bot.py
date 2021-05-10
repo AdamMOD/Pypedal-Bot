@@ -52,7 +52,7 @@ class Bot:
             print("Angle too big!")
 
     def shutdown(self):
-        mybot.zero_servos()
+        self.zero_servos()
         time.sleep(1)
 
     def read_servo_count(self, servo):
