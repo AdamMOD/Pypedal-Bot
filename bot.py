@@ -36,7 +36,7 @@ class Bot:
         return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
 
     def zero_servos(self):
-        for servo in self.pca_servo_channels:
+        for servo in range(4):
             self.command_servo_angle(servo, 0)
 
     def command_servo_angle(self, servo, cmd):
