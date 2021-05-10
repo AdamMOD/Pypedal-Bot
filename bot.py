@@ -41,7 +41,7 @@ class Bot:
 
     def command_servo_angle(self, servo, cmd):
         self.kit[self.pca_servo_channels[servo]].angle = (
-            servo_zero_angles[servo] + cmd * self.servo_angle_flips[servo]
+            self.servo_zero_angles[servo] + cmd * self.servo_angle_flips[servo]
         )
 
     def read_servo_angle(self, servo):
