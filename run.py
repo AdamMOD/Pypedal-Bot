@@ -12,7 +12,7 @@ from board import SCL, SDA
 
 mybot = bot.Bot()
 
-maxcmd = np.array([50., 50, 50, 50])
+maxcmd = np.array([50.0, 50, 50, 50])
 for servo, cmd in enumerate(maxcmd):
     mybot.command_servo_angle(servo, cmd)
 time.sleep(1)
@@ -26,7 +26,6 @@ for servo, cmd in enumerate(mincmd):
 time.sleep(1)
 for i in range(4):
     print(mybot.read_servo_angle(i))
-
 
 
 """
