@@ -31,12 +31,13 @@ while(currtime - t_start < 10000):
     reading1 = mybot.read_servo_angle(1)
     reading0 = mybot.read_servo_angle(0)
     pitch = mybot.read_pitch()
-    dat_arr.append([currtime - t_start, cmd, reading0, reading1, pitch])
+    pitchrate = mybot.read_pitch_rate()
+    dat_arr.append([currtime - t_start, cmd, reading0, reading1, pitch, pitchrate])
 
 
 mybot.shutdown()
 
 #print(dat_arr)
-cols = ["Time", "Command", "Righthip", "Lefthip", "Pitch"]
+cols = ["Time", "Command", "Righthip", "Lefthip", "Pitch", "Pitchdot"]
 df = pandas.DataFrame(dat_arr, columns = cols)
 df.to_csv(r"data/servotsts.csv")
