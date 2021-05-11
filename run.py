@@ -41,11 +41,14 @@ def balancetest(write=True):
     currtime = round(time.time() * 1000)
     dat_arr = []
     while(currtime - t_start < 10000):
-        currtime = round(time.time() * 1000)
+        newtime = round(time.time() * 1000)
         #reading1 = mybot.read_servo_angle(1)
         reading0 = mybot.read_servo_angle(0)
-        pitch = mybot.read_pitch()
-        pitchrate = mybot.read_pitch_rate()
+        pitchnew = mybot.read_pitch()
+        pitchrate = (pitchnew - pitch)  / (newtime - currtime)
+        pitch = pitchnew + 0
+        currtime = newtime + 0
+        #pitchrate = mybot.read_pitch_rate()
         state = np.array([reading0, pitch, pitchrate])
         try:
             cmd = algorithms.pd_control(state)
