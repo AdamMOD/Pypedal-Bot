@@ -34,7 +34,7 @@ def measuretest(write=True):
         df.to_csv(r"data/servotsts.csv")
 
 
-def balanceteest(write=True):
+def balancetest(write=True):
     t_start = round(time.time() * 1000)
     currtime = round(time.time() * 1000)
     dat_arr = []
@@ -61,7 +61,7 @@ mybot = bot.Bot()
 
 mybot.zero_servos()
 time.sleep(1)
-measuretest()
+balancetest()
 mybot.shutdown()
 
 #print(dat_arr)
