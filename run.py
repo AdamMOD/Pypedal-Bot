@@ -47,9 +47,12 @@ def balancetest(write=True):
         pitch = mybot.read_pitch()
         pitchrate = mybot.read_pitch_rate()
         state = np.array([reading0, pitch, pitchrate])
-        cmd = algorithms.pd_control(state)
-        mybot.command_servo_angle(1, cmd)
-        mybot.command_servo_angle(0, cmd)
+        try:
+            cmd = algorithms.pd_control(state)
+            mybot.command_servo_angle(1, cmd)
+            mybot.command_servo_angle(0, cmd)
+        except:
+            cmd = 0
         dat_arr.append([currtime - t_start, cmd, reading0, pitch, pitchrate])
     mybot.shutdown()
 
