@@ -2,7 +2,7 @@ import numpy as np
 import pandas
 import matplotlib.pyplot as plt
 
-with open("data\\runtst.csv") as f:
+with open("data\\runtstbigpid.csv") as f:
     servo_pd = pandas.read_csv(f)
     f.close()
 

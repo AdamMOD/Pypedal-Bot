@@ -79,4 +79,5 @@ class Bot:
 
     def read_pitch_rate(self):
         anglerate = self.imu.gyro
+        anglerate = np.rad2deg(-anglerate)
         return anglerate[1]
