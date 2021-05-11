@@ -61,6 +61,8 @@ def balancetest(write=True):
                     mybot.command_servo_angle(0, cmd)
                 except:
                     cmd = 0
+                    pitchrate = 0
+                    pitch = 0
             else:
                 cmd = 0
         except:
