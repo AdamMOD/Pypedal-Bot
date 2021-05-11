@@ -47,7 +47,7 @@ def balancetest(write=True):
         pitchnew = mybot.read_pitch()
         try:
             if(len(dat_arr) == 0):
-                pitchrate = 0
+                pitchrate_der = 0
             else:
                 pitchrate_der = 1000 * (pitchnew - pitch)  / (newtime - currtime)
             pitch = pitchnew + 0
@@ -61,16 +61,10 @@ def balancetest(write=True):
                     mybot.command_servo_angle(0, cmd)
                 except:
                     cmd = 0
-                    pitchrate = 0
-                    pitch = 0
             else:
                     cmd = 0
-                    pitchrate = 0
-                    pitch = 0
         except:
                 cmd = 0
-                pitch = 0
-                pitchrate = 0
         dat_arr.append([currtime - t_start, cmd, reading0, pitch, pitchrate])
     mybot.shutdown()
 
