@@ -45,7 +45,7 @@ def balancetest(write=True):
         #reading1 = mybot.read_servo_angle(1)
         reading0 = mybot.read_servo_angle(0)
         pitchnew = mybot.read_pitch()
-        try:
+        if(pitchnew is not None):
             if(len(dat_arr) == 0):
                 pitchrate_der = 0
             else:
@@ -63,8 +63,8 @@ def balancetest(write=True):
                     cmd = 0
             else:
                     cmd = 0
-        except:
-                cmd = 0
+        else:
+            cmd = 0
         dat_arr.append([currtime - t_start, cmd, reading0, pitch, pitchrate])
     mybot.shutdown()
 
