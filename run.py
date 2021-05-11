@@ -65,8 +65,3 @@ mybot.zero_servos()
 time.sleep(1)
 balancetest()
 mybot.shutdown()
-
-#print(dat_arr)
-cols = ["Time", "Command", "Righthip", "Lefthip", "Pitch", "Pitchdot"]
-df = pandas.DataFrame(dat_arr, columns = cols)
-df.to_csv(r"data/servotsts.csv")
