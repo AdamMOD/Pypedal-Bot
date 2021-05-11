@@ -45,26 +45,28 @@ def balancetest(write=True):
         #reading1 = mybot.read_servo_angle(1)
         reading0 = mybot.read_servo_angle(0)
         pitchnew = mybot.read_pitch()
-        if(len(dat_arr) == 0):
-            pitchrate = 0
-        else:
-            try:
-                pitchrate = 1000 * (pitchnew - pitch)  / (newtime - currtime)
-            except: 
+        try:
+            if(len(dat_arr) == 0):
                 pitchrate = 0
-        pitch = pitchnew + 0
-        currtime = newtime + 0
-        #pitchrate = mybot.read_pitch_rate()
-        state = np.array([reading0, pitch, pitchrate])
-        if(abs(pitchrate) < 100):
-            try:
-                cmd = algorithms.pd_control(state)
-                mybot.command_servo_angle(1, cmd)
-                mybot.command_servo_angle(0, cmd)
-            except:
+            else:
+                pitchrate = 1000 * (pitchnew - pitch)  / (newtime - currtime)
+            pitch = pitchnew + 0
+            currtime = newtime + 0
+            #pitchrate = mybot.read_pitch_rate()
+            state = np.array([reading0, pitch, pitchrate])
+            if(abs(pitchrate) < 100):
+                try:
+                    cmd = algorithms.pd_control(state)
+                    mybot.command_servo_angle(1, cmd)
+                    mybot.command_servo_angle(0, cmd)
+                except:
+                    cmd = 0
+            else:
                 cmd = 0
-        else:
-            cmd = 0
+        except:
+                cmd = 0
+                pitch = 0
+                pitchrate = 0
         dat_arr.append([currtime - t_start, cmd, reading0, pitch, pitchrate])
     mybot.shutdown()
 
