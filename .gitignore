@@ -130,4 +130,4 @@ dmypy.json
 
 # data
 data/servotst.csv
-data/runtsts.csv
+data/runtst.csv
