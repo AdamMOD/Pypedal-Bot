@@ -48,7 +48,10 @@ def balancetest(write=True):
         if(len(dat_arr) == 0):
             pitchrate = 0
         else:
-            pitchrate = 1000 * (pitchnew - pitch)  / (newtime - currtime)
+            try:
+                pitchrate = 1000 * (pitchnew - pitch)  / (newtime - currtime)
+            except: 
+                pitchrate = 0
         pitch = pitchnew + 0
         currtime = newtime + 0
         #pitchrate = mybot.read_pitch_rate()
