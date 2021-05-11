@@ -13,6 +13,7 @@ from adafruit_servokit import ServoKit
 from board import SCL, SDA
 
 def measuretest(write=True):
+    print("Starting servo move and read test")
     t_start = round(time.time() * 1000)
     currtime = round(time.time() * 1000)
     dat_arr = []
@@ -35,6 +36,7 @@ def measuretest(write=True):
 
 
 def balancetest(write=True):
+    print("Starting balance test")
     t_start = round(time.time() * 1000)
     currtime = round(time.time() * 1000)
     dat_arr = []
@@ -45,7 +47,7 @@ def balancetest(write=True):
         pitch = mybot.read_pitch()
         pitchrate = mybot.read_pitch_rate()
         state = np.array([reading0, pitch, pitchrate])
-        cmd = algorithms.p_control(state)
+        cmd = algorithms.pd_control(state)
         mybot.command_servo_angle(1, cmd)
         mybot.command_servo_angle(0, cmd)
         dat_arr.append([currtime - t_start, cmd, reading0, pitch, pitchrate])
