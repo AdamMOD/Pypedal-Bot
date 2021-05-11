@@ -48,16 +48,19 @@ def balancetest(write=True):
         if(len(dat_arr) == 0):
             pitchrate = 0
         else:
-            pitchrate = (pitchnew - pitch)  / (newtime - currtime)
+            pitchrate = 1000 * (pitchnew - pitch)  / (newtime - currtime)
         pitch = pitchnew + 0
         currtime = newtime + 0
         #pitchrate = mybot.read_pitch_rate()
         state = np.array([reading0, pitch, pitchrate])
-        try:
-            cmd = algorithms.pd_control(state)
-            mybot.command_servo_angle(1, cmd)
-            mybot.command_servo_angle(0, cmd)
-        except:
+        if(abs(pitchrate) < 100):
+            try:
+                cmd = algorithms.pd_control(state)
+                mybot.command_servo_angle(1, cmd)
+                mybot.command_servo_angle(0, cmd)
+            except:
+                cmd = 0
+        else:
             cmd = 0
         dat_arr.append([currtime - t_start, cmd, reading0, pitch, pitchrate])
     mybot.shutdown()
