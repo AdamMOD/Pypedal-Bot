@@ -21,18 +21,14 @@ def measuretest(write=True):
         currtime = round(time.time() * 1000)
         cmd = 20 * np.sin(float(currtime - t_start) * 2 / 1000)
         mybot.command_servo_angle(1, cmd)
-        mybot.command_servo_angle(0, cmd)
         reading1 = mybot.read_servo_angle(1)
-        reading0 = mybot.read_servo_angle(0)
-        pitch = mybot.read_pitch()
-        pitchrate = mybot.read_pitch_rate()
-        dat_arr.append([currtime - t_start, cmd, reading0, reading1, pitch, pitchrate])
+        dat_arr.append([currtime - t_start, cmd,reading1])
     mybot.shutdown()
 
     if(write):
         cols = ["Time", "Command", "Righthip", "Lefthip", "Pitch", "Pitchdot"]
         df = pandas.DataFrame(dat_arr, columns = cols)
-        df.to_csv(r"data/servotsts.csv")
+        df.to_csv(r"data/hip_sysiden/servotsts.csv")
 
 
 def balancetest(write=True):
@@ -78,5 +74,5 @@ mybot = bot.Bot()
 
 mybot.zero_servos()
 time.sleep(1)
-balancetest()
+measuretest()
 mybot.shutdown()
