@@ -26,7 +26,7 @@ def measuretest(write=True):
     mybot.shutdown()
 
     if(write):
-        cols = ["Time", "Command", "Righthip", "Lefthip", "Pitch", "Pitchdot"]
+        cols = ["Time", "Command","Lefthip"]
         df = pandas.DataFrame(dat_arr, columns = cols)
         df.to_csv(r"data/hip_sysiden/servotsts.csv")
 
