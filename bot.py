@@ -38,7 +38,7 @@ class Bot:
 
         self.ads = adafruit_ads1x15.ads1115.ADS1115(self.__i2cbus)
         self.ads.gain = 1
-        #self.ads.data_rate = 860
+        self.ads.data_rate = 860
         ads_chan0 = AnalogIn(self.ads, adafruit_ads1x15.ads1115.P0)
         ads_chan1 = AnalogIn(self.ads, adafruit_ads1x15.ads1115.P1)
         ads_chan2 = AnalogIn(self.ads, adafruit_ads1x15.ads1115.P2)

@@ -21,7 +21,7 @@ def measuretest(write=True):
         currtime = round(time.time() * 1000)
         cmd = 20 * np.sin(float(currtime - t_start) * 2 / 1000)
         mybot.command_servo_angle(1, cmd)
-        reading1 = mybot.read_servo_angle(1)
+        reading1 = 1# mybot.read_servo_angle(1)
         dat_arr.append([currtime - t_start, cmd,reading1])
     mybot.shutdown()
 
