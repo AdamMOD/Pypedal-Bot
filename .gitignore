@@ -131,4 +131,4 @@ dmypy.json
 # data
 data/servotst.csv
 data/runtst.csv
-data/hip_sysiden/servotst.csv
+data/hip_sysiden/servotsts.csv
