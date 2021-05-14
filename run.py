@@ -44,7 +44,7 @@ def balancetest(write=True):
         reading0 = mybot.read_servo_angle(0)
         pitchnew = mybot.read_pitch()
         if(pitchnew is not None):
-            if(len(dat_arr) == 0):
+            if(len(dat_arr) == 1):
                 pitchrate_der = 0
             else:
                 pitchrate_der = (pitchnew - pitch)  / dt
