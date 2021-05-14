@@ -75,5 +75,5 @@ mybot = bot.Bot()
 
 mybot.zero_servos()
 time.sleep(1)
-measuretest()
+balancetest()
 mybot.shutdown()
