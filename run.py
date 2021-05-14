@@ -14,12 +14,12 @@ from board import SCL, SDA
 
 def measuretest(write=True):
     print("Starting servo move and read test")
-    t_start = round(time.time() * 1000)
-    currtime = round(time.time() * 1000)
+    t_start = time.time()
+    currtime = time.time() 
     dat_arr = []
     while(currtime - t_start < 10000):
-        currtime = round(time.time() * 1000)
-        cmd = 20 * np.sin(float(currtime - t_start) * 16 / 1000)
+        currtime = time.time()
+        cmd = 20 * np.sin(float(currtime - t_start) * 16)
         mybot.command_servo_angle(1, cmd)
         reading1 = mybot.read_servo_angle(1)
         dat_arr.append([currtime - t_start, cmd,reading1])
@@ -33,12 +33,12 @@ def measuretest(write=True):
 
 def balancetest(write=True):
     print("Starting balance test")
-    t_start = round(time.time())
-    currtime = round(time.time())
+    t_start = time.time()
+    currtime = time.time()
     dat_arr = [[0, 0, 0, 0, 0]]
     time.sleep(.01)
     while(currtime - t_start < 10000):
-        currtime = round(time.time())
+        currtime = time.time()
         dt = ((currtime - t_start) - dat_arr[-1][0])
         #reading1 = mybot.read_servo_angle(1)
         reading0 = mybot.read_servo_angle(0)
