@@ -36,7 +36,7 @@ def balancetest(write=True):
     t_start = round(time.time())
     currtime = round(time.time())
     dat_arr = [[t_start, 0, 0, 0, 0]]
-    time.sleep(.5)
+    time.sleep(.01)
     while(currtime - t_start < 10000):
         newtime = round(time.time())
         dt = ((newtime- t_start) - dat_arr[-1][0])
