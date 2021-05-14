@@ -2,7 +2,7 @@ import numpy as np
 import pandas
 import matplotlib.pyplot as plt
 
-with open("data\\hip_sysiden\\servotsts.csv") as f:
+with open("data\\hip_sysiden\\sina20w4.csv") as f:
     servo_pd = pandas.read_csv(f)
     f.close()
 
