@@ -35,11 +35,11 @@ def balancetest(write=True):
     print("Starting balance test")
     t_start = round(time.time())
     currtime = round(time.time())
-    dat_arr = [[t_start, 0, 0, 0, 0]]
+    dat_arr = [[0, 0, 0, 0, 0]]
     time.sleep(.01)
     while(currtime - t_start < 10000):
-        newtime = round(time.time())
-        dt = ((newtime- t_start) - dat_arr[-1][0])
+        currtime = round(time.time())
+        dt = ((currtime - t_start) - dat_arr[-1][0])
         #reading1 = mybot.read_servo_angle(1)
         reading0 = mybot.read_servo_angle(0)
         pitchnew = mybot.read_pitch()
