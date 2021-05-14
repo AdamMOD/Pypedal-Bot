@@ -14,7 +14,7 @@ def pd_control(state):
 def pid_control(state, dt):
     """State is in form righthip angle, pitch, pitch rate"""
     state = raw_read_to_incline(state)
-    err = np.array([0, zero_pitch, 0]) - state
+    err = np.array([zero_pitch, 0]) - state
     I_term = I_term + dt * err[1]
     K = np.array([1, 0, 0])
     return np.dot(err, K) + I_gain * I_term
