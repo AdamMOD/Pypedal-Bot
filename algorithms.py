@@ -1,7 +1,5 @@
 import numpy as np
 
-global I_term
-
 zero_pitch = 0.0
 I_term = 0.0
 I_gain = 1.0
@@ -15,6 +13,7 @@ def pd_control(state):
 
 
 def pid_control(state, dt):
+    global I_term
     """State is in form righthip angle, pitch, pitch rate"""
     state = raw_read_to_incline(state)
     err = np.array([zero_pitch, 0]) - state
