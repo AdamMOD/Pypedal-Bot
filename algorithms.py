@@ -1,8 +1,10 @@
 import numpy as np
 
-global zero_pitch = 0.0
-global I_term = 0.0
-global I_gain = 1.0
+global I_term
+
+zero_pitch = 0.0
+I_term = 0.0
+I_gain = 1.0
 
 
 def pd_control(state):
