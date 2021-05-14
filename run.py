@@ -12,10 +12,6 @@ from adafruit_pca9685 import PCA9685
 from adafruit_servokit import ServoKit
 from board import SCL, SDA
 
-zero_pitch = 0.0
-I_term = 0
-I_gain = 1
-
 
 def measuretest(write=True):
     print("Starting servo move and read test")
