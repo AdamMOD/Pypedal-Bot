@@ -36,6 +36,7 @@ def balancetest(write=True):
     t_start = round(time.time())
     currtime = round(time.time())
     dat_arr = []
+    time.sleep(.5)
     while(currtime - t_start < 10000):
         newtime = round(time.time())
         #reading1 = mybot.read_servo_angle(1)
