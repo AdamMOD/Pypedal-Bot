@@ -35,7 +35,7 @@ def balancetest(write=True):
     print("Starting balance test")
     t_start = round(time.time())
     currtime = round(time.time())
-    dat_arr = [t_start, 0, 0, 0, 0]
+    dat_arr = [[t_start, 0, 0, 0, 0]]
     time.sleep(.5)
     while(currtime - t_start < 10000):
         newtime = round(time.time())
