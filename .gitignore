@@ -135,3 +135,4 @@ data/hip_sysiden/servotsts.csv
 
 #slx junk
 *.slxc
+simulink/slprj/
