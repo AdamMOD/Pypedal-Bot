@@ -8,7 +8,7 @@ I_gain = 1.0
 def pd_control(state):
     """State is in form righthip angle, pitch, pitch rate"""
     err = np.array([0, zero_pitch, 0]) - state
-    K = np.array([.1, 1.5, 0])
+    K = np.array([1.5, 1.5, 0])
     return np.dot(err, K)
 
 

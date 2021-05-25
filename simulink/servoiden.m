@@ -34,10 +34,10 @@ tfest(allsins, 2, 0)
 
 models = [];
 legends = [];
-MSEs = zeros(4, 4);
-STDs  = zeros(4, 4);
+MSEs = zeros(5, 5);
+STDs  = zeros(5, 5);
 
-for npoles = 1:3
+for npoles = 1:4
     for nzeros = 0:npoles
         model = tfest(allsins, npoles, nzeros );
         models = [models; model];
@@ -67,14 +67,14 @@ models(8)
 models(9)
 
 figure
-heatmap(log(MSEs))
+heatmap(0:4,1:5,log(MSEs))
 xlabel("Zeros")
 ylabel("Poles")
 title("Log Normalized MSE for various Poles, Zeros counts")
 colorbar;
 
 figure
-heatmap(log(STDs))
+heatmap(0:4,1:5,log(STDs))
 xlabel("Zeros")
 ylabel("Poles")
 title("Log Max STDEV for various Poles, Zeros counts")
