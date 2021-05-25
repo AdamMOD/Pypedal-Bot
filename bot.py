@@ -24,7 +24,7 @@ class Bot:
         self.pca = PCA9685(self.__i2cbus)
         self.pca.frequency = 330
 
-        self.pca_servo_channels = np.array([0, 1, 4, 5])
+        self.pca_servo_channels = np.array([0, 1, 4, 5]) + 1
         for channel in self.pca_servo_channels:
             self.kit.servo[channel].acuation_range = 180
             self.kit.servo[channel].set_pulse_width_range(900, 2100)
