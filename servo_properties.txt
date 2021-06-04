@@ -1,0 +1,5 @@
+Servo digital pot has resolution of 16 on Gain1AdcRead
+It's noisy
+Backlash for hip and knee is 
+47.25 to 16.58 raw, 100 counts = .635cm, works out to .19cm 
+with both joints movin, works out to .2deg pm .05deg backlash total

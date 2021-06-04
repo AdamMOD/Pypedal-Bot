@@ -58,25 +58,23 @@ legend(legends(3:9))
 %Choosing 2p1z, again nonsense response to sin wave.. what is happening?
 %it eventually does something reasonable, but the rise time is way too
 %high!
-models(3)
-models(4)
-models(5)
+%models(4)
+%models(5)
 models(6)
-models(7)
-models(8)
-models(9)
 
-figure
-heatmap(0:4,1:5,log(MSEs))
-xlabel("Zeros")
-ylabel("Poles")
-title("Log Normalized MSE for various Poles, Zeros counts")
-colorbar;
+step(models(4))
 
-figure
-heatmap(0:4,1:5,log(STDs))
-xlabel("Zeros")
-ylabel("Poles")
-title("Log Max STDEV for various Poles, Zeros counts")
-colorbar;
+%figure
+%heatmap(0:4,1:5,log(MSEs))
+%xlabel("Zeros")
+%ylabel("Poles")
+%title("Log Normalized MSE for various Poles, Zeros counts")
+%colorbar;
+
+%figure
+%heatmap(0:4,1:5,log(STDs))
+%xlabel("Zeros")
+%ylabel("Poles")
+%title("Log Max STDEV for various Poles, Zeros counts")
+%colorbar;
 
